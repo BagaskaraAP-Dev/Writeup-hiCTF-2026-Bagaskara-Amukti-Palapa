@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="470" viewBox="0 0 880 470" font-family="'Segoe UI',system-ui,sans-serif">
+  <rect x="1" y="1" width="878" height="468" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="30" y="44" font-size="23" font-weight="700" fill="#e6edf3">Log Jam — discrete log → AES-GCM</text>
+  <text x="30" y="70" font-size="14" fill="#8b949e" font-family="'Cascadia Code',Consolas,monospace">p hanya ~71 bit → DLP bisa dipecahkan</text>
+
+  <!-- params.json -->
+  <rect x="30" y="92" width="235" height="150" rx="10" fill="#161b22" stroke="#484f58"/>
+  <text x="48" y="116" font-size="14" font-weight="700" fill="#c9d1d9" font-family="'Cascadia Code',Consolas,monospace">params.json</text>
+  <g font-size="12.5" fill="#8b949e" font-family="'Cascadia Code',Consolas,monospace">
+    <text x="48" y="140">p  = 0x7958...6f23</text>
+    <text x="48" y="160">g  = 0x2d73...cc0bb7</text>
+    <text x="48" y="180">h  = 0x3613...198135</text>
+    <text x="48" y="200">nonce / ct / tag</text>
+  </g>
+  <text x="48" y="228" font-size="12" fill="#6e7681">(≈71-bit modulus)</text>
+
+  <path d="M265 167 L305 167" stroke="#58a6ff" stroke-width="2" marker-end="url(#c)"/>
+
+  <!-- DLP -->
+  <rect x="308" y="98" width="255" height="138" rx="10" fill="#0e1c2e" stroke="#1f6feb" stroke-width="1.5"/>
+  <text x="435" y="124" font-size="15" font-weight="700" fill="#58a6ff" text-anchor="middle">Discrete Log</text>
+  <text x="435" y="150" font-size="15" fill="#e6edf3" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">h = g^x mod p</text>
+  <text x="435" y="176" font-size="12.5" fill="#8b949e" text-anchor="middle">SageMath discrete_log()</text>
+  <rect x="330" y="190" width="210" height="32" rx="7" fill="#0d1117" stroke="#1f6feb"/>
+  <text x="435" y="211" font-size="12.5" fill="#58a6ff" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">x = 471774559909450042061</text>
+
+  <path d="M563 167 L603 167" stroke="#58a6ff" stroke-width="2" marker-end="url(#c)"/>
+
+  <!-- SHA256 -->
+  <rect x="606" y="110" width="244" height="114" rx="10" fill="#0e1c2e" stroke="#1f6feb" stroke-width="1.5"/>
+  <text x="728" y="136" font-size="15" font-weight="700" fill="#58a6ff" text-anchor="middle">Key derivation</text>
+  <text x="728" y="162" font-size="13" fill="#e6edf3" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">sha256(str(x))</text>
+  <text x="728" y="184" font-size="12.5" fill="#8b949e" text-anchor="middle">→ 32-byte AES-256 key</text>
+  <text x="728" y="208" font-size="11.5" fill="#6e7681" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">34636e6f0fa8...6d474fc8</text>
+
+  <path d="M728 224 L728 272" stroke="#58a6ff" stroke-width="2" marker-end="url(#c)"/>
+
+  <!-- AES-GCM decrypt -->
+  <rect x="300" y="276" width="550" height="70" rx="10" fill="#0e1c2e" stroke="#1f6feb" stroke-width="1.5"/>
+  <text x="575" y="304" font-size="15" font-weight="700" fill="#58a6ff" text-anchor="middle">AES-256-GCM decrypt</text>
+  <text x="575" y="328" font-size="13" fill="#8b949e" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">key · nonce · ciphertext + tag</text>
+  <path d="M300 311 L270 311 L270 360" stroke="#58a6ff" stroke-width="2" fill="none" marker-end="url(#c)" opacity="0"/>
+  <path d="M435 236 L435 262 L310 262 L310 290 L300 290" stroke="#58a6ff" stroke-width="1.5" fill="none" opacity="0.4"/>
+
+  <path d="M575 346 L575 380" stroke="#e3b341" stroke-width="2" marker-end="url(#cg)"/>
+
+  <!-- flag -->
+  <rect x="285" y="384" width="580" height="44" rx="10" fill="#1c1708" stroke="#e3b341" stroke-width="1.5"/>
+  <text x="575" y="412" font-size="16" font-weight="700" fill="#e3b341" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">hiCTF{W0W1_y0u_4ctu4a11y_s01v3d_1t_ju$t_L1k3_tH4t}</text>
+
+  <defs>
+    <marker id="c" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#58a6ff"/></marker>
+    <marker id="cg" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#e3b341"/></marker>
+  </defs>
+</svg>

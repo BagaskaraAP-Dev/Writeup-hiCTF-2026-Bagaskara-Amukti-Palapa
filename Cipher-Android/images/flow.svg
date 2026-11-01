@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="560" viewBox="0 0 880 560" font-family="'Segoe UI',system-ui,sans-serif">
+  <rect x="1" y="1" width="878" height="558" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="30" y="44" font-size="23" font-weight="700" fill="#e6edf3">Cipher — Android vault, serangan offline</text>
+  <text x="30" y="70" font-size="14" fill="#8b949e" font-family="'Cascadia Code',Consolas,monospace">kelemahan: entropy passphrase hanya 18 bit</text>
+
+  <!-- apk + assets -->
+  <rect x="30" y="92" width="250" height="150" rx="10" fill="#101d16" stroke="#2ea043" stroke-width="1.5"/>
+  <text x="48" y="116" font-size="14" font-weight="700" fill="#3ddc84" font-family="'Cascadia Code',Consolas,monospace">cipher.apk</text>
+  <text x="48" y="138" font-size="12.5" fill="#8b949e">6 dex + 3 aset:</text>
+  <g font-size="12" fill="#6e7681" font-family="'Cascadia Code',Consolas,monospace">
+    <text x="48" y="160">m4.bin  2048 B  kamus</text>
+    <text x="48" y="180">n3.bin    96 B  verifier</text>
+    <text x="48" y="200">p7.bin  6101 B  vault</text>
+  </g>
+  <text x="48" y="226" font-size="11.5" fill="#6e7681">64 record terenkripsi</text>
+
+  <path d="M280 167 L318 167" stroke="#3ddc84" stroke-width="2" marker-end="url(#h)"/>
+
+  <!-- seed search -->
+  <rect x="320" y="104" width="250" height="126" rx="10" fill="#101d16" stroke="#2ea043" stroke-width="1.5"/>
+  <text x="445" y="130" font-size="14" font-weight="700" fill="#3ddc84" text-anchor="middle">SeedWindow</text>
+  <text x="445" y="154" font-size="13" fill="#e6edf3" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">bits() = 18</text>
+  <text x="445" y="176" font-size="13" fill="#e6edf3" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">2^18 = 262144</text>
+  <text x="445" y="200" font-size="12" fill="#8b949e" text-anchor="middle">range 764149760 … 764411903</text>
+  <text x="445" y="219" font-size="11.5" fill="#6e7681" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">seed = 764408707</text>
+
+  <path d="M570 167 L608 167" stroke="#3ddc84" stroke-width="2" marker-end="url(#h)"/>
+
+  <!-- passphrase -->
+  <rect x="610" y="104" width="240" height="126" rx="10" fill="#101d16" stroke="#2ea043" stroke-width="1.5"/>
+  <text x="730" y="130" font-size="14" font-weight="700" fill="#3ddc84" text-anchor="middle">LegacyPassphrase</text>
+  <text x="730" y="152" font-size="12" fill="#8b949e" text-anchor="middle">JavaRandom (LCG) → 6 kata</text>
+  <text x="730" y="172" font-size="12" fill="#8b949e" text-anchor="middle">+ suffix 2 digit</text>
+  <rect x="624" y="184" width="212" height="38" rx="7" fill="#0d1117" stroke="#2ea043"/>
+  <text x="730" y="200" font-size="9.5" fill="#3ddc84" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">smxvoisk-fcxfgnpl-poznukfv-</text>
+  <text x="730" y="214" font-size="9.5" fill="#3ddc84" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">zxpmztpo-yanlxwmm-yanlxwmm-42</text>
+
+  <path d="M730 230 L730 258 L445 258 L445 286" stroke="#3ddc84" stroke-width="2" fill="none" marker-end="url(#h)"/>
+
+  <!-- pbkdf2 + verify -->
+  <rect x="140" y="288" width="600" height="64" rx="10" fill="#101d16" stroke="#2ea043" stroke-width="1.5"/>
+  <text x="440" y="314" font-size="14" font-weight="700" fill="#3ddc84" text-anchor="middle">root = PBKDF2-HMAC-SHA256(passphrase, salt, 32768)</text>
+  <text x="440" y="337" font-size="12" fill="#8b949e" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">verify: HMAC(root,"cipher-verifier-v3")[:16] == n3-decoded  ✓</text>
+
+  <path d="M440 352 L440 378" stroke="#3ddc84" stroke-width="2" marker-end="url(#h)"/>
+
+  <!-- decrypt records -->
+  <rect x="140" y="380" width="600" height="68" rx="10" fill="#101d16" stroke="#2ea043" stroke-width="1.5"/>
+  <text x="440" y="406" font-size="14" font-weight="700" fill="#3ddc84" text-anchor="middle">dekripsi 64 record — AES-256-GCM + HKDF per-record</text>
+  <text x="440" y="429" font-size="12" fill="#8b949e" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">record #47 → "Archived security memo"</text>
+
+  <path d="M440 448 L440 474" stroke="#e3b341" stroke-width="2" marker-end="url(#hg)"/>
+
+  <!-- flag -->
+  <rect x="190" y="478" width="500" height="44" rx="10" fill="#1c1708" stroke="#e3b341" stroke-width="1.5"/>
+  <text x="440" y="506" font-size="14.5" font-weight="700" fill="#e3b341" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">hiCTF{cryptography_should_be_implemnetd_properly}</text>
+
+  <defs>
+    <marker id="h" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#3ddc84"/></marker>
+    <marker id="hg" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#e3b341"/></marker>
+  </defs>
+</svg>

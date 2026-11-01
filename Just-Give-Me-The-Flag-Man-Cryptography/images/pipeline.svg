@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="600" viewBox="0 0 880 600" font-family="'Segoe UI',system-ui,sans-serif">
+  <rect x="1" y="1" width="878" height="598" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="30" y="44" font-size="23" font-weight="700" fill="#e6edf3">Just Give Me The Flag Man — 5 lapis encoding</text>
+  <text x="30" y="70" font-size="14" fill="#8b949e" font-family="'Cascadia Code',Consolas,monospace">kupas dari luar ke dalam</text>
+
+  <!-- stage boxes -->
+  <g font-family="'Cascadia Code',Consolas,monospace">
+    <!-- s0 input -->
+    <rect x="240" y="90" width="400" height="56" rx="10" fill="#161b22" stroke="#484f58"/>
+    <text x="440" y="114" font-size="14" font-weight="600" fill="#c9d1d9" text-anchor="middle" font-family="'Segoe UI',sans-serif">chall.txt — 52 token hex, huruf u v w x z</text>
+    <text x="440" y="134" font-size="12.5" fill="#6e7681" text-anchor="middle">53 74 u3 17 35 x3 x2 76 24 ...</text>
+  </g>
+  <path d="M440 146 L440 168" stroke="#58a6ff" stroke-width="2" marker-end="url(#b)"/>
+
+  <rect x="140" y="170" width="600" height="60" rx="10" fill="#0e1c2e" stroke="#1f6feb" stroke-width="1.5"/>
+  <text x="165" y="195" font-size="15" font-weight="600" fill="#58a6ff">1 · Atbash a–f + reverse string</text>
+  <text x="165" y="218" font-size="13" fill="#8b949e" font-family="'Segoe UI',sans-serif">u v w x y z → f e d c b a, balik seluruh string, lalu bytes.fromhex</text>
+  <path d="M440 230 L440 252" stroke="#58a6ff" stroke-width="2" marker-end="url(#b)"/>
+
+  <rect x="140" y="254" width="600" height="46" rx="10" fill="#0e1c2e" stroke="#1f6feb" stroke-width="1.5"/>
+  <text x="165" y="282" font-size="15" font-weight="600" fill="#58a6ff">2 · ASCII85 decode</text>
+  <path d="M440 300 L440 322" stroke="#58a6ff" stroke-width="2" marker-end="url(#b)"/>
+
+  <rect x="140" y="324" width="600" height="60" rx="10" fill="#0e1c2e" stroke="#1f6feb" stroke-width="1.5"/>
+  <text x="165" y="349" font-size="15" font-weight="600" fill="#58a6ff">3 · ROT47 → Base91 decode</text>
+  <text x="165" y="372" font-size="13" fill="#8b949e" font-family="'Segoe UI',sans-serif">brute shift mod 94 → ROT47 yang menghasilkan struktur flag</text>
+  <path d="M440 384 L440 406" stroke="#58a6ff" stroke-width="2" marker-end="url(#b)"/>
+
+  <rect x="140" y="408" width="600" height="60" rx="10" fill="#161b22" stroke="#484f58"/>
+  <text x="440" y="434" font-size="14" fill="#c9d1d9" text-anchor="middle" font-family="'Segoe UI',sans-serif">teks tersandi, prefix:</text>
+  <text x="440" y="456" font-size="15" font-weight="700" fill="#d2a8ff" text-anchor="middle">feKTH{uf1ht1zg_7fv0sgf_7f3_l4u3u}</text>
+  <path d="M440 468 L440 490" stroke="#58a6ff" stroke-width="2" marker-end="url(#b)"/>
+
+  <rect x="140" y="492" width="600" height="54" rx="10" fill="#0e1c2e" stroke="#1f6feb" stroke-width="1.5"/>
+  <text x="165" y="515" font-size="15" font-weight="600" fill="#58a6ff">4 · Beaufort key M</text>
+  <text x="165" y="536" font-size="13" fill="#8b949e" font-family="'Segoe UI',sans-serif">cipher + plain = 12 (M) → p = (12 − c) mod 26</text>
+  <path d="M750 519 L792 519" stroke="#e3b341" stroke-width="0" />
+
+  <!-- flag -->
+  <rect x="150" y="556" width="580" height="38" rx="9" fill="#1c1708" stroke="#e3b341" stroke-width="1.5"/>
+  <text x="440" y="581" font-size="16" font-weight="700" fill="#e3b341" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">hiCTF{sh1ft1ng_7hr0ugh_7h3_b4s3s}</text>
+
+  <defs>
+    <marker id="b" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#58a6ff"/></marker>
+  </defs>
+</svg>

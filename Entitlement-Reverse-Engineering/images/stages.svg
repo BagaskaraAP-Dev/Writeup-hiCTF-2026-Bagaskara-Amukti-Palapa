@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="640" viewBox="0 0 880 640" font-family="'Segoe UI',system-ui,sans-serif">
+  <rect x="1" y="1" width="878" height="638" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="30" y="44" font-size="23" font-weight="700" fill="#e6edf3">Entitlement — license checker, 6 tahap</text>
+  <text x="30" y="70" font-size="14" fill="#8b949e" font-family="'Cascadia Code',Consolas,monospace">"I believe I have the key but why isn't it working?"</text>
+
+  <!-- stage generator via repeated blocks -->
+  <!-- 1 -->
+  <rect x="30" y="90" width="820" height="72" rx="10" fill="#1a1230" stroke="#8957e5" stroke-width="1.5"/>
+  <circle cx="66" cy="126" r="17" fill="#20152e" stroke="#bc8cff"/><text x="66" y="132" font-size="17" font-weight="700" fill="#bc8cff" text-anchor="middle">1</text>
+  <text x="96" y="118" font-size="16" font-weight="600" fill="#e6edf3">Unpack UPX yang disamarkan</text>
+  <text x="96" y="140" font-size="13" fill="#8b949e">magic UPX! diganti HI4! di 3 offset → kembalikan → upx -d</text>
+  <text x="96" y="156" font-size="12" fill="#6e7681" font-family="'Cascadia Code',Consolas,monospace">sisa string $Info / $Id khas UPX</text>
+
+  <path d="M440 162 L440 178" stroke="#bc8cff" stroke-width="2" marker-end="url(#e)"/>
+  <!-- 2 -->
+  <rect x="30" y="180" width="820" height="80" rx="10" fill="#1a1230" stroke="#8957e5" stroke-width="1.5"/>
+  <circle cx="66" cy="220" r="17" fill="#20152e" stroke="#bc8cff"/><text x="66" y="226" font-size="17" font-weight="700" fill="#bc8cff" text-anchor="middle">2</text>
+  <text x="96" y="208" font-size="16" font-weight="600" fill="#e6edf3">VM serial: dekripsi bytecode, balik di GF(2⁶⁴)</text>
+  <text x="96" y="230" font-size="13" fill="#8b949e">VM(s) = (s ⊕ C11)¹³ ⊕ C13 ; pangkat 13 bijektif → invers d = 13⁻¹ mod 2⁶⁴−1</text>
+  <rect x="604" y="232" width="236" height="22" rx="6" fill="#0d1117" stroke="#8957e5"/>
+  <text x="722" y="248" font-size="11.5" fill="#bc8cff" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">serial = 8f7db18bd70e193b</text>
+
+  <path d="M440 260 L440 276" stroke="#bc8cff" stroke-width="2" marker-end="url(#e)"/>
+  <!-- 3 -->
+  <rect x="30" y="278" width="820" height="80" rx="10" fill="#1a1230" stroke="#8957e5" stroke-width="1.5"/>
+  <circle cx="66" cy="318" r="17" fill="#20152e" stroke="#bc8cff"/><text x="66" y="324" font-size="17" font-weight="700" fill="#bc8cff" text-anchor="middle">3</text>
+  <text x="96" y="306" font-size="16" font-weight="600" fill="#e6edf3">Activation: kurva eliptik anomalous + Smart's attack</text>
+  <text x="96" y="328" font-size="13" fill="#8b949e">#E = p (trace 1) → ECDLP polinomial via lift ke Z/p²Z, baca log p-adic</text>
+  <rect x="560" y="330" width="280" height="22" rx="6" fill="#0d1117" stroke="#8957e5"/>
+  <text x="700" y="346" font-size="11.5" fill="#bc8cff" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">k = 2977e17b118de75b3b4e921a4</text>
+
+  <path d="M440 358 L440 374" stroke="#bc8cff" stroke-width="2" marker-end="url(#e)"/>
+  <!-- 4 -->
+  <rect x="30" y="376" width="820" height="72" rx="10" fill="#1a1230" stroke="#8957e5" stroke-width="1.5"/>
+  <circle cx="66" cy="412" r="17" fill="#20152e" stroke="#bc8cff"/><text x="66" y="418" font-size="17" font-weight="700" fill="#bc8cff" text-anchor="middle">4</text>
+  <text x="96" y="404" font-size="16" font-weight="600" fill="#e6edf3">"Kenapa tidak jalan?" → time-lock puzzle</text>
+  <text x="96" y="426" font-size="14" fill="#c9d1d9" font-family="'Cascadia Code',Consolas,monospace">y = x^(2^500000000) mod N</text>
+  <text x="96" y="442" font-size="12" fill="#6e7681">5×10⁸ kuadrat modular 2048-bit (Montgomery lambat buatan sendiri)</text>
+
+  <path d="M440 448 L440 464" stroke="#bc8cff" stroke-width="2" marker-end="url(#e)"/>
+  <!-- 5 -->
+  <rect x="30" y="466" width="820" height="80" rx="10" fill="#1a1230" stroke="#8957e5" stroke-width="1.5"/>
+  <circle cx="66" cy="506" r="17" fill="#20152e" stroke="#bc8cff"/><text x="66" y="512" font-size="17" font-weight="700" fill="#bc8cff" text-anchor="middle">5</text>
+  <text x="96" y="494" font-size="16" font-weight="600" fill="#e6edf3">Hitung di luar (gmpy2 ~11 menit), suntik lewat gdb</text>
+  <text x="96" y="516" font-size="13" fill="#8b949e">patch loop 50000×10000 → 1×1 + bypass TracerPid (di luar region vmtext yang di-hash)</text>
+  <text x="96" y="534" font-size="12" fill="#6e7681" font-family="'Cascadia Code',Consolas,monospace">restore y.bin ke $rsp+0x340 → program sendiri cetak flag</text>
+
+  <path d="M440 546 L440 562" stroke="#e3b341" stroke-width="2" marker-end="url(#eg)"/>
+  <!-- flag -->
+  <rect x="120" y="566" width="640" height="46" rx="10" fill="#1c1708" stroke="#e3b341" stroke-width="1.5"/>
+  <text x="440" y="595" font-size="14.5" font-weight="700" fill="#e3b341" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">hiCTF{&gt;o&lt;_C0ngrats_Her3_1s_Y0ur_HI4_Subscript1on_^_^}</text>
+
+  <defs>
+    <marker id="e" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#bc8cff"/></marker>
+    <marker id="eg" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#e3b341"/></marker>
+  </defs>
+</svg>

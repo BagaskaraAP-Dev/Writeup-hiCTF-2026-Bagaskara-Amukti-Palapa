@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="600" viewBox="0 0 880 600" font-family="'Segoe UI',system-ui,sans-serif">
+  <rect x="1" y="1" width="878" height="598" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="30" y="44" font-size="23" font-weight="700" fill="#e6edf3">Echoes of a Forgotten Canvas — 4 lapisan steganografi</text>
+  <text x="30" y="70" font-size="14" fill="#8b949e" font-family="'Cascadia Code',Consolas,monospace">chall.png → kupas lapis demi lapis</text>
+
+  <!-- layer template -->
+  <g>
+    <!-- L1 -->
+    <rect x="30" y="90" width="820" height="88" rx="10" fill="#0f1f14" stroke="#238636" stroke-width="1.5"/>
+    <circle cx="66" cy="134" r="18" fill="#132a1a" stroke="#3fb950"/>
+    <text x="66" y="140" font-size="18" font-weight="700" fill="#3fb950" text-anchor="middle">1</text>
+    <text x="98" y="122" font-size="17" font-weight="600" fill="#e6edf3">PNG height trick</text>
+    <text x="98" y="145" font-size="13.5" fill="#8b949e">CRC IHDR invalid → tinggi asli 4000 → 4500, baca channel alpha</text>
+    <text x="98" y="167" font-size="13.5" fill="#6e7681" font-family="'Cascadia Code',Consolas,monospace">yield →</text>
+    <rect x="560" y="112" width="276" height="46" rx="8" fill="#0d1117" stroke="#2ea043"/>
+    <text x="698" y="140" font-size="15" font-weight="700" fill="#3fb950" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">hiCTF{mu1t!14y3r3d_</text>
+  </g>
+  <path d="M440 178 L440 196" stroke="#3fb950" stroke-width="2" marker-end="url(#a)"/>
+
+  <g>
+    <!-- L2 -->
+    <rect x="30" y="200" width="820" height="88" rx="10" fill="#0f1f14" stroke="#238636" stroke-width="1.5"/>
+    <circle cx="66" cy="244" r="18" fill="#132a1a" stroke="#3fb950"/>
+    <text x="66" y="250" font-size="18" font-weight="700" fill="#3fb950" text-anchor="middle">2</text>
+    <text x="98" y="232" font-size="17" font-weight="600" fill="#e6edf3">ZIP (ZipCrypto) di-append setelah IEND</text>
+    <text x="98" y="255" font-size="13.5" fill="#8b949e">carve dari byte setelah IEND, crack password dengan rockyou</text>
+    <rect x="560" y="222" width="276" height="46" rx="8" fill="#0d1117" stroke="#2ea043"/>
+    <text x="698" y="243" font-size="13.5" fill="#c9d1d9" text-anchor="middle">carrier.jpg</text>
+    <text x="698" y="261" font-size="12.5" fill="#6e7681" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">pw: dreamcatcher</text>
+  </g>
+  <path d="M440 288 L440 306" stroke="#3fb950" stroke-width="2" marker-end="url(#a)"/>
+
+  <g>
+    <!-- L3 -->
+    <rect x="30" y="310" width="820" height="88" rx="10" fill="#0f1f14" stroke="#238636" stroke-width="1.5"/>
+    <circle cx="66" cy="354" r="18" fill="#132a1a" stroke="#3fb950"/>
+    <text x="66" y="360" font-size="18" font-weight="700" fill="#3fb950" text-anchor="middle">3</text>
+    <text x="98" y="342" font-size="17" font-weight="600" fill="#e6edf3">steghide pada gambar puisi "WILDER ECHOES"</text>
+    <text x="98" y="365" font-size="13.5" fill="#8b949e">passphrase = kata "profound" dari puisi (stegseek/rockyou)</text>
+    <rect x="560" y="332" width="276" height="46" rx="8" fill="#0d1117" stroke="#2ea043"/>
+    <text x="698" y="353" font-size="13.5" fill="#c9d1d9" text-anchor="middle">finall.jpg</text>
+    <text x="698" y="371" font-size="12.5" fill="#6e7681" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">pass: profound</text>
+  </g>
+  <path d="M440 398 L440 416" stroke="#3fb950" stroke-width="2" marker-end="url(#a)"/>
+
+  <g>
+    <!-- L4 -->
+    <rect x="30" y="420" width="820" height="88" rx="10" fill="#0f1f14" stroke="#238636" stroke-width="1.5"/>
+    <circle cx="66" cy="464" r="18" fill="#132a1a" stroke="#3fb950"/>
+    <text x="66" y="470" font-size="18" font-weight="700" fill="#3fb950" text-anchor="middle">4</text>
+    <text x="98" y="452" font-size="17" font-weight="600" fill="#e6edf3">JPEG height trick (SOF0)</text>
+    <text x="98" y="475" font-size="13.5" fill="#8b949e">naikkan field tinggi di marker SOF0 → baris MCU tersembunyi</text>
+    <rect x="560" y="442" width="276" height="46" rx="8" fill="#0d1117" stroke="#2ea043"/>
+    <text x="698" y="470" font-size="15" font-weight="700" fill="#3fb950" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">st3g0o_ju5t_l0v333}</text>
+  </g>
+  <path d="M440 508 L440 526" stroke="#e3b341" stroke-width="2" marker-end="url(#g)"/>
+
+  <!-- flag -->
+  <rect x="150" y="530" width="580" height="48" rx="10" fill="#1c1708" stroke="#e3b341" stroke-width="1.5"/>
+  <text x="440" y="560" font-size="17" font-weight="700" fill="#e3b341" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">hiCTF{mu1t!14y3r3d_st3g0o_ju5t_l0v333}</text>
+
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#3fb950"/></marker>
+    <marker id="g" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#e3b341"/></marker>
+  </defs>
+</svg>

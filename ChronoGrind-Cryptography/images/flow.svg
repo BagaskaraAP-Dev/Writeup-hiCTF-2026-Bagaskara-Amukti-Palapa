@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="520" viewBox="0 0 880 520" font-family="'Segoe UI',system-ui,sans-serif">
+  <rect x="1" y="1" width="878" height="518" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="30" y="44" font-size="23" font-weight="700" fill="#e6edf3">ChronoGrind — RSW time-lock puzzle</text>
+  <text x="30" y="70" font-size="14" fill="#8b949e" font-family="'Cascadia Code',Consolas,monospace">"the only key is the one you earn" — 9 miliar squaring berurutan</text>
+
+  <!-- state.dat -->
+  <rect x="30" y="92" width="250" height="120" rx="10" fill="#161b22" stroke="#484f58"/>
+  <text x="48" y="116" font-size="14" font-weight="700" fill="#c9d1d9" font-family="'Cascadia Code',Consolas,monospace">state.dat</text>
+  <text x="48" y="140" font-size="12.5" fill="#8b949e">XOR 0x4C → TLV records</text>
+  <g font-size="12" fill="#6e7681" font-family="'Cascadia Code',Consolas,monospace">
+    <text x="48" y="162">0x11 anchor N (2048-bit)</text>
+    <text x="48" y="180">0x22 seed   0x33 cycles</text>
+    <text x="48" y="198">0x44 chk (sha256 verify)</text>
+  </g>
+  <path d="M280 152 L320 152" stroke="#58a6ff" stroke-width="2" marker-end="url(#d)"/>
+
+  <!-- RSW -->
+  <rect x="323" y="98" width="527" height="108" rx="10" fill="#0e1c2e" stroke="#1f6feb" stroke-width="1.5"/>
+  <text x="586" y="124" font-size="15" font-weight="700" fill="#58a6ff" text-anchor="middle">Rivest–Shamir–Wagner time-lock</text>
+  <text x="586" y="152" font-size="16" fill="#e6edf3" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">v = seed^(2^9000000000) mod N</text>
+  <text x="586" y="178" font-size="12.5" fill="#8b949e" text-anchor="middle">N tak terfaktor → tidak ada jalan pintas, tidak bisa diparalelkan</text>
+  <text x="586" y="196" font-size="11.5" fill="#6e7681" text-anchor="middle">"no shortcuts · your cores won't save you"</text>
+
+  <path d="M586 206 L586 236" stroke="#58a6ff" stroke-width="2" marker-end="url(#d)"/>
+
+  <!-- grind engines -->
+  <rect x="323" y="240" width="258" height="96" rx="10" fill="#161b22" stroke="#484f58"/>
+  <text x="452" y="264" font-size="14" font-weight="600" fill="#c9d1d9" text-anchor="middle">Grinding engine</text>
+  <text x="452" y="287" font-size="12.5" fill="#8b949e" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">gmpy2 powmod  ~1.19 µs/sq</text>
+  <text x="452" y="305" font-size="12.5" fill="#8b949e" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">≈ 3.0 jam</text>
+  <text x="452" y="325" font-size="11.5" fill="#6e7681" text-anchor="middle">checkpoint tiap chunk</text>
+
+  <rect x="592" y="240" width="258" height="96" rx="10" fill="#0e1c2e" stroke="#1f6feb" stroke-width="1.5"/>
+  <text x="721" y="264" font-size="14" font-weight="700" fill="#58a6ff" text-anchor="middle">AVX-512 IFMA kernel</text>
+  <text x="721" y="287" font-size="12.5" fill="#c9d1d9" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">Montgomery radix 2^52</text>
+  <text x="721" y="305" font-size="12.5" fill="#3fb950" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">~0.53 µs/sq → ≈ 1.3 jam</text>
+  <text x="721" y="325" font-size="11.5" fill="#6e7681" text-anchor="middle">vpmadd52lo/hi, 40 limb</text>
+
+  <path d="M586 336 L586 366" stroke="#58a6ff" stroke-width="2" marker-end="url(#d)"/>
+
+  <!-- key + AEAD -->
+  <rect x="323" y="370" width="527" height="58" rx="10" fill="#0e1c2e" stroke="#1f6feb" stroke-width="1.5"/>
+  <text x="586" y="394" font-size="14" font-weight="700" fill="#58a6ff" text-anchor="middle">k = sha256(v)  →  ChaCha20-Poly1305 decrypt flag.enc</text>
+  <text x="586" y="416" font-size="12" fill="#8b949e" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">container CGFX menaruh tag sebelum ciphertext → tukar ke ct||tag</text>
+
+  <path d="M586 428 L586 452" stroke="#e3b341" stroke-width="2" marker-end="url(#dg)"/>
+
+  <!-- flag -->
+  <rect x="285" y="456" width="600" height="44" rx="10" fill="#1c1708" stroke="#e3b341" stroke-width="1.5"/>
+  <text x="585" y="484" font-size="16" font-weight="700" fill="#e3b341" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">hiCTF{n1c3_w0rk_n0w_t4k3_s0m3_r3$t}</text>
+
+  <defs>
+    <marker id="d" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#58a6ff"/></marker>
+    <marker id="dg" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#e3b341"/></marker>
+  </defs>
+</svg>

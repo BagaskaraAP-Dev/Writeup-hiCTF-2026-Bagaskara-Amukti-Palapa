@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="580" viewBox="0 0 880 580" font-family="'Segoe UI',system-ui,sans-serif">
+  <rect x="1" y="1" width="878" height="578" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="30" y="44" font-size="23" font-weight="700" fill="#e6edf3">The Inner Engine — stack-VM crackme</text>
+  <text x="30" y="70" font-size="14" fill="#8b949e" font-family="'Cascadia Code',Consolas,monospace">Nim binary, 234 instruksi, 24 opcode</text>
+
+  <!-- VM architecture panel -->
+  <rect x="30" y="88" width="820" height="226" rx="12" fill="#0b1020" stroke="#30363d"/>
+  <text x="48" y="112" font-size="14" font-weight="700" fill="#8b949e">ARSITEKTUR VM</text>
+
+  <!-- bytecode -->
+  <rect x="48" y="126" width="180" height="70" rx="8" fill="#161b22" stroke="#484f58"/>
+  <text x="138" y="150" font-size="13.5" font-weight="600" fill="#c9d1d9" text-anchor="middle">Bytecode</text>
+  <text x="138" y="170" font-size="11.5" fill="#6e7681" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">0x405e00</text>
+  <text x="138" y="187" font-size="11.5" fill="#6e7681" text-anchor="middle">5 byte / instr</text>
+
+  <path d="M228 161 L262 161" stroke="#bc8cff" stroke-width="2" marker-end="url(#f)"/>
+
+  <!-- dispatch -->
+  <rect x="264" y="120" width="210" height="100" rx="8" fill="#1a1230" stroke="#8957e5" stroke-width="1.5"/>
+  <text x="369" y="144" font-size="13.5" font-weight="700" fill="#bc8cff" text-anchor="middle">Dispatch loop</text>
+  <text x="369" y="164" font-size="11" fill="#8b949e" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">0x404709</text>
+  <text x="369" y="184" font-size="11" fill="#8b949e" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">op=bytecode[PC]</text>
+  <text x="369" y="202" font-size="11" fill="#8b949e" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">call table[op]</text>
+
+  <path d="M474 170 L508 170" stroke="#bc8cff" stroke-width="2" marker-end="url(#f)"/>
+
+  <!-- handler table -->
+  <rect x="510" y="126" width="150" height="70" rx="8" fill="#161b22" stroke="#484f58"/>
+  <text x="585" y="150" font-size="13" font-weight="600" fill="#c9d1d9" text-anchor="middle">Handler table</text>
+  <text x="585" y="170" font-size="11.5" fill="#6e7681" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">0x40a240</text>
+  <text x="585" y="187" font-size="11.5" fill="#6e7681" text-anchor="middle">24 opcode</text>
+
+  <!-- state -->
+  <rect x="678" y="126" width="154" height="70" rx="8" fill="#161b22" stroke="#484f58"/>
+  <text x="755" y="148" font-size="12.5" font-weight="600" fill="#c9d1d9" text-anchor="middle">State</text>
+  <text x="755" y="167" font-size="10.5" fill="#6e7681" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">R[] · PC · IMM</text>
+  <text x="755" y="184" font-size="10.5" fill="#6e7681" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">STATUS · stack[]</text>
+
+  <!-- gates -->
+  <rect x="48" y="232" width="380" height="66" rx="8" fill="#161b22" stroke="#484f58"/>
+  <text x="238" y="256" font-size="13" font-weight="600" fill="#c9d1d9" text-anchor="middle">23 constraint relasional atas 24-byte key</text>
+  <text x="238" y="278" font-size="11.5" fill="#6e7681" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">XOR / ADD&amp;0xff / MUL&amp;0xff — tiap gagal → STATUS2</text>
+
+  <rect x="446" y="232" width="386" height="66" rx="8" fill="#231016" stroke="#f778ba" stroke-width="1.5"/>
+  <text x="639" y="252" font-size="13" font-weight="700" fill="#f778ba" text-anchor="middle">opcode 11 · REVEAL (gerbang SHA-256)</text>
+  <text x="639" y="272" font-size="11" fill="#8b949e" text-anchor="middle">keystream = SHA256(key) → XOR ciphertext</text>
+  <text x="639" y="289" font-size="11" fill="#8b949e" text-anchor="middle">cek SHA256(candidate) == stored → cetak flag</text>
+
+  <!-- solve flow -->
+  <text x="30" y="346" font-size="14" font-weight="700" fill="#8b949e">ALUR SOLVE</text>
+  <rect x="30" y="358" width="230" height="64" rx="9" fill="#1a1230" stroke="#8957e5" stroke-width="1.5"/>
+  <text x="145" y="384" font-size="14" font-weight="600" fill="#bc8cff" text-anchor="middle">model 23 constraint</text>
+  <text x="145" y="406" font-size="12.5" fill="#8b949e" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">z3 · key ASCII printable</text>
+
+  <path d="M260 390 L300 390" stroke="#bc8cff" stroke-width="2" marker-end="url(#f)"/>
+
+  <rect x="302" y="358" width="270" height="64" rx="9" fill="#1a1230" stroke="#8957e5" stroke-width="1.5"/>
+  <text x="437" y="384" font-size="14" font-weight="600" fill="#bc8cff" text-anchor="middle">uji tiap kandidat ke binary</text>
+  <text x="437" y="406" font-size="12.5" fill="#8b949e" text-anchor="middle">gate SHA-256 = oracle penyaring</text>
+
+  <path d="M572 390 L612 390" stroke="#bc8cff" stroke-width="2" marker-end="url(#f)"/>
+
+  <rect x="614" y="358" width="218" height="64" rx="9" fill="#0d1117" stroke="#8957e5"/>
+  <text x="723" y="382" font-size="12" fill="#c9d1d9" text-anchor="middle">activation key</text>
+  <text x="723" y="404" font-size="11.5" fill="#bc8cff" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">L1c#N0d3_7mQ9f3a2b8c6d1e</text>
+
+  <path d="M440 422 L440 452" stroke="#e3b341" stroke-width="2" marker-end="url(#fg)"/>
+
+  <!-- flag -->
+  <rect x="190" y="456" width="500" height="46" rx="10" fill="#1c1708" stroke="#e3b341" stroke-width="1.5"/>
+  <text x="440" y="485" font-size="15.5" font-weight="700" fill="#e3b341" text-anchor="middle" font-family="'Cascadia Code',Consolas,monospace">hiCTF{vm_byt3c0d3_1nn3r_3ng1n3_unw0und!}</text>
+
+  <text x="440" y="534" font-size="12.5" fill="#6e7681" text-anchor="middle">Takeaway: jangan lawan SHA-256 — pecahkan constraint pra-hash, pakai binary sebagai oracle</text>
+
+  <defs>
+    <marker id="f" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#bc8cff"/></marker>
+    <marker id="fg" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#e3b341"/></marker>
+  </defs>
+</svg>

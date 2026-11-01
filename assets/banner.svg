@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300" font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#58a6ff"/>
+      <stop offset="0.5" stop-color="#bc8cff"/>
+      <stop offset="1" stop-color="#3fb950"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="996" height="296" rx="18" fill="url(#bg)" stroke="#30363d" stroke-width="2"/>
+  <rect x="2" y="2" width="996" height="6" rx="3" fill="url(#accent)"/>
+  <!-- faint grid dots -->
+  <g fill="#21262d">
+    <circle cx="880" cy="60" r="3"/><circle cx="910" cy="60" r="3"/><circle cx="940" cy="60" r="3"/>
+    <circle cx="880" cy="90" r="3"/><circle cx="910" cy="90" r="3"/><circle cx="940" cy="90" r="3"/>
+    <circle cx="880" cy="120" r="3"/><circle cx="910" cy="120" r="3"/><circle cx="940" cy="120" r="3"/>
+  </g>
+  <text x="50" y="95" font-size="54" font-weight="700" fill="#e6edf3">hiCTF <tspan fill="#58a6ff">2026</tspan></text>
+  <text x="52" y="132" font-size="21" fill="#8b949e">Hidden Investigations — CyberCon · Capture The Flag Writeups</text>
+  <text x="52" y="178" font-size="26" font-weight="600" fill="#e6edf3">Bagaskara Amukti Palapa</text>
+  <text x="52" y="205" font-size="16" fill="#6e7681" font-family="'Cascadia Code',Consolas,monospace">flag format: hiCTF{...}  ·  7 challenges solved</text>
+  <!-- category chips -->
+  <g font-size="14" font-weight="600">
+    <rect x="50" y="235" width="100" height="30" rx="15" fill="#132a1a" stroke="#238636"/>
+    <text x="100" y="255" fill="#3fb950" text-anchor="middle">Steganography</text>
+    <rect x="162" y="235" width="112" height="30" rx="15" fill="#10233f" stroke="#1f6feb"/>
+    <text x="218" y="255" fill="#58a6ff" text-anchor="middle">Cryptography ×3</text>
+    <rect x="286" y="235" width="150" height="30" rx="15" fill="#20152e" stroke="#8957e5"/>
+    <text x="361" y="255" fill="#bc8cff" text-anchor="middle">Reverse Engineering ×2</text>
+    <rect x="448" y="235" width="86" height="30" rx="15" fill="#0f2a1c" stroke="#2ea043"/>
+    <text x="491" y="255" fill="#3ddc84" text-anchor="middle">Android</text>
+  </g>
+</svg>
